@@ -35,5 +35,33 @@ namespace DAL
 
         }
 
+        public List<Libro> GetLibros()
+        {
+            using (var sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                var query = new SqlCommand("select * from Libro", sqlConnection);
+
+                using (var dr = query.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        // Usuario
+                        var libro = new Libro
+                        {
+                            ID = Convert.ToInt32(dr["ID"]),
+                            Nombre = dr["Nombre"].ToString(),
+                            Descripcion = dr["Descripcion"].ToString(),
+                            GeneroID = Convert.ToInt32(dr["GeneroID"]),
+                        };
+
+                        Libros.Add(libro);
+
+                    }
+                }
+            }
+            return Libros;
+        }
+
     }
 }
