@@ -63,5 +63,44 @@ namespace DAL
             return Libros;
         }
 
+        public bool UpdateLibro(Libro updatelibro)
+        {
+            bool Result = false;
+
+            using (var sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                var query = new SqlCommand("UPDATE Libro SET Nombre = @p0, Descripcion = @p1, GeneroID = @p2) WHERE ID = @p3", sqlConnection);
+
+                query.Parameters.AddWithValue("@p0", updatelibro.Nombre);
+                query.Parameters.AddWithValue("@p1", updatelibro.Descripcion);
+                query.Parameters.AddWithValue("@p2", updatelibro.GeneroID);
+                query.Parameters.AddWithValue("@p3", updatelibro.ID);
+
+                query.ExecuteNonQuery();
+
+                Result = true;
+                return Result; 
+
+            }
+        }
+
+        public bool DeleteLibro(int id)
+        {
+            bool Result = false;
+
+            using(var sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+
+                var query = new SqlCommand("DELETE FROM Libro WHERE ID = @p0", sqlConnection);
+                query.Parameters.AddWithValue("@p0", id);
+                query.ExecuteNonQuery();
+
+                Result = true;
+                return Result;
+            }
+        }
+
     }
 }
