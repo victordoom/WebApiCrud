@@ -23,10 +23,33 @@ namespace Biblio.Service.Controllers
             return Libro;
         }
 
+        public bool RemoveLibro(int ID)
+        {
+            var Result = UsuarioDAL.DeleteLibro(ID);
+
+            if (!Result)
+            {
+                Result = false;
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+
+            return Result;
+        }
+
         [HttpGet]
         public List<Libro> RetrieveAllLibro()
         {
             return UsuarioDAL.GetLibros();
+        }
+
+        [HttpPut]
+        public bool UpdateLibro(int ID, Libro libroToUpdate)
+        {
+            if (!UsuarioDAL.UpdateLibro(libroToUpdate))
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            return true;
         }
     }
 }
