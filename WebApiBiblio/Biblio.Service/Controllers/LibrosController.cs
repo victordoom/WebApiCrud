@@ -23,6 +23,7 @@ namespace Biblio.Service.Controllers
             return Libro;
         }
 
+        [HttpDelete]
         public bool RemoveLibro(int ID)
         {
             var Result = UsuarioDAL.DeleteLibro(ID);
