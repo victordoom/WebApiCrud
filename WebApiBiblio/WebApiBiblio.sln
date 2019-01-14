@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblio.Service", "Biblio.Service\Biblio.Service.csproj", "{F1598B44-E0C4-4475-8074-F6FE8008B1DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{CA39FA3B-39B7-49F0-B793-3A9847EDC67C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F1598B44-E0C4-4475-8074-F6FE8008B1DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1598B44-E0C4-4475-8074-F6FE8008B1DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1598B44-E0C4-4475-8074-F6FE8008B1DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA39FA3B-39B7-49F0-B793-3A9847EDC67C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA39FA3B-39B7-49F0-B793-3A9847EDC67C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA39FA3B-39B7-49F0-B793-3A9847EDC67C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA39FA3B-39B7-49F0-B793-3A9847EDC67C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
