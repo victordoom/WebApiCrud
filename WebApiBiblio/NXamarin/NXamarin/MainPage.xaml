@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:NXamarin"
+             xmlns:vm="clr-namespace:NViewModel;assembly=NViewModel"
+             x:Class="NXamarin.MainPage">
+
+    <ContentPage.BindingContext>
+        <vm:Libro></vm:Libro>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Margin="10" Text="Categoria:"></Label>
+                <Entry Text="{Binding CategoryID}"></Entry>
+                <Button Text="Buscar" Command="{Binding SearchLibrosCommand}"></Button>
+                <Button Text="Ver Detalle" Command="{Binding SearchLibrosIDCommand}"></Button>
+            </StackLayout>
+            <ListView ItemsSource="{Binding Path=Libros}" SelectedItem="{Binding LibroSelected}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1"></ColumnDefinition>
+                                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                                        <ColumnDefinition Width="2"></ColumnDefinition>
+                                        <ColumnDefinition Width="5"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Text="{Binding ID}"></Label>
+                                    <Label Grid.Column="1" Text="{Binding Nombre}"></Label>
+                                    <Label Grid.Column="2" Text="{Binding Descripcion}"></Label>
+                                    <Label Grid.Column="3" Text="{Binding GeneroID}"></Label>
+
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <StackLayout Margin="30,0,0,0">
+            <Label Text="Detalle del Producto"></Label>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="GeneroID"></Label>
+                <Label Text="{Binding GeneroID}"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Nombre"></Label>
+                <Label Text="{Binding Nombre}"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Descripcion"></Label>
+                <Label Text="{Binding Descripcion}"></Label>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
