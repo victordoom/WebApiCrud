@@ -1,19 +1,17 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Entities;
 
 namespace SLC
 {
     public interface IService
     {
-        Libro CreateProduct(Libro newLibro);
-        Libro RetrieveLibroByID(int ID);
-        bool UpdateLibro(Libro libroToUpdate);
+        Libro CreateLibro(Libro newLibro);
+        // Libro RetrieveLibroByID(int ID);
+         bool UpdateLibro(int ID, Libro libroToUpdate);
         bool RemoveLibro(int ID);
-        List<Libro> FilterLibroByGeneroID(int GeneroID);
+        // List<Libro> FilterLibrosByGeneroID(int generoID);
         List<Libro> RetrieveAllLibro();
-
-
     }
 }
